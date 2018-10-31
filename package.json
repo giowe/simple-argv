@@ -1,6 +1,6 @@
 {
   "name": "simple-argv",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "simple process.argv value parser",
   "main": "argv.js",
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/giowe/simple-argv#readme",
   "dependencies": {},
   "devDependencies": {
+    "@soluzioni-futura/eslint-config-soluzioni-futura": "^1.0.1",
     "eslint": "^4.7.2"
   }
 }

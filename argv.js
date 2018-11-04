@@ -2,7 +2,7 @@ const a = process.argv.slice();
 const argv = {_: []};
 
 const cleanFlag = flag => flag.substr(flag[1] === '-' ? 2 : 1);
-const tryParse = value => typeOf(value) !== 'undefined' && !value.match(/\D/g) ? Number.parseFloat(value) : value;
+const tryParse = value => typeof value !== 'undefined' && !value.match(/\D/g) ? Number.parseFloat(value) : value;
 
 for (let i = 2; i < a.length; i++) {
   const e = a[i];

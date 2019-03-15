@@ -6,8 +6,7 @@ module.exports = input => {
     input = ["", "", ...input.split(" ")]
   }
 
-  input = input.slice()
-  console.log(input)
+  input = input.filter(e => e !== "=")
   const argv = { _: [] }
 
   for (let i = 2; i < input.length; i++) {

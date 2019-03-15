@@ -2,7 +2,12 @@ const cleanFlag = flag => flag.substr(flag[1] === "-" ? 2 : 1)
 const tryParse = value => typeof value !== "undefined" && !value.match(/\D/g) ? Number.parseFloat(value) : value
 
 module.exports = input => {
+  if (typeof input === "string") {
+    input = ["", "", ...input.split(" ")]
+  }
+
   input = input.slice()
+  console.log(input)
   const argv = { _: [] }
 
   for (let i = 2; i < input.length; i++) {

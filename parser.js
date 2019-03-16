@@ -6,11 +6,12 @@ const tryParse = value => {
     return number
   }
 
-  if (value.toLowerCase() === "true") {
+  const lowerValue = value.toLowerCase()
+  if (lowerValue === "true") {
     return true
   }
 
-  if (value.toLowerCase() === "false") {
+  if (lowerValue === "false") {
     return false
   }
 
@@ -19,7 +20,7 @@ const tryParse = value => {
 
 module.exports = input => {
   if (typeof input === "string") {
-    input = ["", "", ...input.split(" ")]
+    input = ["", "", ...input.split(" ").filter(e => e)]
   }
   input = input.reduce((acc, e) => {
     if (e !== "=") {

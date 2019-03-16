@@ -1,6 +1,6 @@
 {
   "name": "simple-argv",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "simple process.argv value parser",
   "main": "argv.js",
   "repository": {

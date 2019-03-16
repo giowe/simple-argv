@@ -1,12 +1,47 @@
 const cleanFlag = flag => flag.substr(flag[1] === "-" ? 2 : 1)
-const tryParse = value => typeof value !== "undefined" && !value.match(/\D/g) ? Number.parseFloat(value) : value
+const tryParse = value => {
+  if (typeof value !== "undefined" && !value.match(/\D/g)) {
+    return Number.parseFloat(value)
+  }
+
+  if (value.toLowerCase() === "true") {
+    return true
+  }
+
+  if (value.toLowerCase() === "false") {
+    return false
+  }
+
+  return value
+}
 
 module.exports = input => {
   if (typeof input === "string") {
     input = ["", "", ...input.split(" ")]
   }
+  input = input.reduce((acc, e) => {
+    if (e !== "=") {
+      if (e.includes("=")) {
+        acc.push(...e.split("="))
+      } else {
+        acc.push(e)
+      }
+    }
+    return acc
+  }, [])
 
-  input = input.filter(e => e !== "=")
+  input = input.reduce((acc, e) => {
+    if (e.length > 2 && e[0] === "-" && e[1] !== "-" && isNaN(Number.parseFloat(e))) {
+      e.substr(1, e.length - 1).split("").forEach(e => {
+        acc.push(`-${e}`, "true")
+      })
+    } else {
+      acc.push(e)
+    }
+
+    return acc
+  }, [])
+
   const argv = { _: [] }
 
   for (let i = 2; i < input.length; i++) {

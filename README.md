@@ -23,7 +23,7 @@ console.log(argv);
 
 executed with this flags:
 ```
-  $ node . test1 test2 -a 1 --b 2 -c=testC --debug --no-woman -no-cry -happy -key value test3
+  $ node . test1 test2 -a 1 --b 2 -c=testC -d = testD --debug --no-woman --no-cry --happy --key value test3 -xyz
 ```
 
 will return this output:
@@ -32,10 +32,14 @@ will return this output:
   a: 1,
   b: 2,
   c: 'testC',
+  d: 'testD',
   debug: true,
   woman: false,
   cry: false,
   happy: true,
-  key: 'value' 
+  key: 'value'
+  x: true,
+  y: true,
+  z: true
 }
 ``` 

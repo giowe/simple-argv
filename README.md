@@ -13,11 +13,11 @@ Simple process.argv value parser, if [yargs](https://www.npmjs.com/package/yargs
 npm i simple-argv
 ```
 
-## Parsing output example:
+## Parsing output example
 
 given this simple program:
 
-``` bash
+``` js
 const argv = require('simple-argv');
 console.log(argv);
 ```
@@ -30,19 +30,19 @@ executed with this flags:
 
 will return this output:
 
-``` bash
-{ _: [ 'test1', 'test2', 'test3' ],
-  a: 1,
-  b: 2,
-  c: 'testC',
-  d: 'testD',
-  debug: true,
-  woman: false,
-  cry: false,
-  happy: true,
-  key: 'value'
-  x: true,
-  y: true,
-  z: true
+``` json
+{ "_": [ "test1", "test2", "test3" ],
+  "a": 1,
+  "b": 2,
+  "c": "testC",
+  "d": "testD",
+  "debug": true,
+  "woman": false,
+  "cry": false,
+  "happy": true,
+  "key": "value",
+  "x": true,
+  "y": true,
+  "z": true
 }
 ```

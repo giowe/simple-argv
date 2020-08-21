@@ -51,15 +51,17 @@ module.exports = input => {
     const e = input[i]
     if (e[0] !== "-" || !isNaN(Number.parseFloat(e))) {
       const prevE = input[i - 1]
-      if (prevE[0] === "-") argv[cleanFlag(prevE)] = tryParse(e)
-      else argv._.push(tryParse(e))
+      if (prevE[0] === "-") {
+        argv[cleanFlag(prevE)] = tryParse(e)
+      } else {
+        argv._.push(tryParse(e))
+      }
     } else {
       const index = e.indexOf("=")
       if (index === -1) {
         const cleanE = cleanFlag(e)
         cleanE.substr(0, 3).toLowerCase() !== "no-" ? argv[cleanE] = true : argv[cleanE.substr(3, cleanE.length)] = false
-      }
-      else {
+      } else {
         const key = e.substr(0, index)
         input[i] = key
         argv[cleanFlag(key)] = null
